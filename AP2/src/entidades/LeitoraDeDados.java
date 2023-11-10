@@ -39,9 +39,9 @@ public static Evento cadastrarEvento(Scanner leitor) {
     String nome = leitor.nextLine();
 
     // experimento de data
-    System.out.println("Qual a data do evento(dd/mm/yyyy)?\n");
+    System.out.println("Qual a data do evento (dia/mês/ano)?\n");
     String dataStr = leitor.nextLine();
-    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate data = LocalDate.parse(dataStr, formatador);
 
     System.out.println("Qual o local do evento?\n");
