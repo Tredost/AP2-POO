@@ -19,9 +19,9 @@ import java.util.Scanner;
         }
 
         public void salvarDados() {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoAlunos, false))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoIngressos, false))) {
                 for (Ingresso ingresso : ingressos) {
-                    writer.write(aluno.getNome() + "|" + aluno.getCurso() + "|" + aluno.getMatricula());
+                    writer.write(ingresso.getNome() + "|" + ingresso.getCurso() + "|" + ingresso.getMatricula());
                     writer.newLine();
                 }
             } catch (IOException e) {
@@ -56,25 +56,25 @@ import java.util.Scanner;
         public void atualizarCurso(Scanner leitor) {
             System.out.print("Digite a matrícula do aluno: ");
             String matricula = leitor.nextLine();
-            for (Aluno aluno : alunos) {
-                if (aluno.getMatricula().equals(matricula)) {
-                    System.out.println("Aluno encontrado: " + aluno.getNome());
-                    System.out.println("Curso atual: " + aluno.getCurso());
+            for (Ingresso ingresso : ingressos) {
+                if (ingresso.getMatricula().equals(matricula)) {
+                    System.out.println("Aluno encontrado: " + ingresso.getNome());
+                    System.out.println("Curso atual: " + ingresso.getCurso());
                     System.out.print("Digite o novo curso do aluno: ");
                     String novoCurso = leitor.nextLine();
-                    aluno.setCurso(novoCurso);
+                    ingresso.setCurso(novoCurso);
                     return;
                 }
             }
             System.err.println("Matrícula não encontrada!\n");
         }
 
-        public Aluno buscarMatricula(Scanner leitor) {
+        public Ingresso buscarMatricula(Scanner leitor) {
             System.out.print("Digite a matrícula do aluno: ");
             String matricula = leitor.nextLine();
-            for (Aluno aluno : alunos) {
-                if (aluno.getMatricula().equals(matricula)) {
-                    return aluno;
+            for (Ingresso ingresso : ingressos) {
+                if (ingresso.getEvento().equals(evento)) {
+                    return ingresso;
                 }
             }
             System.err.println("Matricula não encontrada!");
@@ -84,8 +84,8 @@ import java.util.Scanner;
         public String toString() {
             String listaAlunos = "";
 
-            for (Aluno aluno : alunos) {
-                listaAlunos += aluno + "\n\n";
+            for (Ingresso ingresso : ingressos) {
+                listaAlunos += ingresso + "\n\n";
             }
             return listaAlunos;
         }

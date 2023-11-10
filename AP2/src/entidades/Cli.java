@@ -265,10 +265,6 @@ public static void consultarIngressosRestantes(Evento evento) {
     "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n");
 }
 
-public static void informacaoUltimaVenda (Evento evento, Ingresso ingresso) {
-    System.out.println(evento.getTipo() + ": " + evento.getNomeEvento() + "\nLocal: " + evento.getLocalEvento() + "\nData: " + evento.getDataEvento() + "\nQuantidade de ingressos vendidos: " + quantidadeIngressoUltimaVenda + ingresso);
-}
-
 }
 
 

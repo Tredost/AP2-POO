@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,14 +31,7 @@ import java.util.Scanner;
         }
 
         public void adicionarEvento(Scanner leitor) {
-            System.out.print("Digite a matrícula do aluno: ");
-            String matricula = leitor.nextLine();
-            System.out.print("Digite o nome do aluno: ");
-            String nome = leitor.nextLine();
-            System.out.print("Digite o curso do aluno: ");
-            String curso = leitor.nextLine();
-            this.eventos.add(new Evento(nome, curso, matricula, int, int , double));
-            System.out.println("Aluno adicionado com sucesso!");
+    
         }
 
         public void removerEvento(Scanner leitor) {
@@ -53,16 +47,12 @@ import java.util.Scanner;
             System.err.println("Matricula não encontrada!");
         }
 
-        public void atualizarCurso(Scanner leitor) {
-            System.out.print("Digite a matrícula do aluno: ");
-            String matricula = leitor.nextLine();
+        public void atualizarEvento(String nome, LocalDate novaData, String novoLocal) {
+            
             for (Evento evento : eventos) {
-                if (evento.getNome().equals(matricula)) {
-                    System.out.println("Aluno encontrado: " + evento.getNome());
-                    System.out.println("Curso atual: " + evento.getCurso());
-                    System.out.print("Digite o novo curso do aluno: ");
-                    String novoCurso = leitor.nextLine();
-                    evento.setCurso(novoCurso);
+                if (evento.getNome().equals(nome)) {
+                    evento.setLocal(novoLocal);
+                    evento.setData(LocalDate novaData);
                     return;
                 }
             }
