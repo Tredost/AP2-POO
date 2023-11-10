@@ -2,21 +2,20 @@ package entidades.ingressos;
 import entidades.eventos.Evento;
 
 public class IngJogo extends Ingresso {
-    private double percentualDescontoTorcedor, percentualDescontoTorcedorOriginal;
+    private double percentualDescontoTorcedor;
 
     public IngJogo(Evento evento, TipoIngresso tipoIngresso, double descontoTorcedor){
         super(evento, tipoIngresso);
         this.percentualDescontoTorcedor = descontoTorcedor;
-        this.percentualDescontoTorcedorOriginal = descontoTorcedor;
     }
 
     public double getPreco(){
-        this.percentualDescontoTorcedor = 1 - (this.percentualDescontoTorcedor / 100);
+        double descontoTorcedor = 1 - (this.percentualDescontoTorcedor / 100);
 
         if (this.getTipoIngresso().equals(TipoIngresso.INTEIRA)) {
-            return this.getEvento().getPrecoCheio() * this.percentualDescontoTorcedor;
+            return this.getEvento().getPrecoCheio() * descontoTorcedor;
         }
-        return (this.getEvento().getPrecoCheio() * this.percentualDescontoTorcedor) / 2;
+        return (this.getEvento().getPrecoCheio() * descontoTorcedor) / 2;
     }
 
     // toString
@@ -24,7 +23,7 @@ public class IngJogo extends Ingresso {
     @Override
     public String toString() {
         return super.toString() + "\n" +
-            "Desconto de torcedor: " + this.percentualDescontoTorcedorOriginal + " %\n";
+            "Desconto de torcedor: " + this.percentualDescontoTorcedor + " %\n";
     }
 
     // GETTERS
