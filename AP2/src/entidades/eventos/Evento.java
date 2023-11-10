@@ -1,13 +1,16 @@
 package entidades.eventos;
+import java.time.LocalDate;
+
 import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
-    private String nome, data, local;
+    private String nome, local;
+    private LocalDate data;
     private int ingressosInteira, ingressosMeia;
     private double precoCheio;
     protected String tipo;
 
-    public Evento(String nome, String data, String local, int ingressosInteira, int ingressosMeia, double precoCheio) {
+    public Evento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio) {
         this.nome = nome;
         this.data = data;
         this.local = local;
@@ -46,15 +49,15 @@ public abstract class Evento {
 
     // GETTERS
 
-    public String getNomeEvento() {
+    public String getNome() {
         return this.nome;
     }
 
-    public String getDataEvento() {
+    public LocalDate getData() {
         return this.data;
     }
 
-    public String getLocalEvento() {
+    public String getLocal() {
         return this.local;
     }
 
@@ -76,15 +79,15 @@ public abstract class Evento {
 
     // SETTERS
 
-    public void setNomeEvento(String novoNome) {
+    public void setNome(String novoNome) {
         this.nome = novoNome;
     }
 
-    public void setDataEvento(String novaData) {
+    public void setData(LocalDate novaData) {
         this.data = novaData;
     }
 
-    public void setLocalEvento(String novoLocal) {
+    public void setLocal(String novoLocal) {
         this.local = novoLocal;
     }
 

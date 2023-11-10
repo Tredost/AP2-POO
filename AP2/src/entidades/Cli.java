@@ -1,4 +1,6 @@
 package entidades;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import entidades.eventos.Evento;
 import entidades.eventos.Exposicao;
@@ -36,8 +38,11 @@ public static Evento cadastrarEvento(Scanner leitor) {
     System.out.println("Qual nome do evento?\n");
     String nome = leitor.nextLine();
 
-    System.out.println("Qual a data do evento?\n");
-    String data = leitor.nextLine();
+    // experimento de data
+    System.out.println("Qual a data do evento(dd.mm.yyyy)?\n");
+    String str = leitor.nextLine();
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd. MM. yyyy");
+    LocalDate data = LocalDate.parse(str, dtf);
 
     System.out.println("Qual o local do evento?\n");
     String local = leitor.nextLine();
@@ -266,7 +271,7 @@ public static void consultarIngressosRestantes(Evento evento) {
 }
 
 public static void informacaoUltimaVenda (Evento evento, Ingresso ingresso) {
-    System.out.println(evento.getTipo() + ": " + evento.getNomeEvento() + "\nLocal: " + evento.getLocalEvento() + "\nData: " + evento.getDataEvento() + "\nQuantidade de ingressos vendidos: " + quantidadeIngressoUltimaVenda + ingresso);
+    System.out.println(evento.getTipo() + ": " + evento.getNome() + "\nLocal: " + evento.getLocal() + "\nData: " + evento.getData() + "\nQuantidade de ingressos vendidos: " + quantidadeIngressoUltimaVenda + ingresso);
 }
 
 }
