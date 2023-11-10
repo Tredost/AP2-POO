@@ -3,7 +3,7 @@ import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
     private String nome, data, local;
-    private int ingressosInteira, ingressosMeia, ingressosInteiraOriginal, ingressosMeiaOriginal;
+    private int ingressosInteira, ingressosMeia;
     private double precoCheio;
     protected String tipo;
 
@@ -11,8 +11,6 @@ public abstract class Evento {
         this.nome = nome;
         this.data = data;
         this.local = local;
-        this.ingressosInteiraOriginal = ingressosInteira;
-        this.ingressosMeiaOriginal = ingressosMeia;
         this.ingressosInteira = ingressosInteira;
         this.ingressosMeia = ingressosMeia;
         this.precoCheio = precoCheio;
@@ -43,8 +41,6 @@ public abstract class Evento {
         return this.nome + "\n" +
             "Data: " + this.data + "\n" +
             "Local: " + this.local + "\n" +
-            "Quantidade de ingressos inteira: " + this.ingressosInteiraOriginal + "\n" +
-            "Quantidade de ingressos meia: " + this.ingressosMeiaOriginal + "\n" +
             "Preço cheio do ingresso: R$ " + String.format("%.2f", this.precoCheio);
     }
 
@@ -61,15 +57,6 @@ public abstract class Evento {
     public String getLocalEvento() {
         return this.local;
     }
-
-    public int getIngressosInteiraOriginal() {
-        return this.ingressosInteiraOriginal;
-    }
-
-    public int getIngressosMeiaOriginal() {
-        return this.ingressosMeiaOriginal;
-    }
-
 
     public int getIngressosInteira() {
         return this.ingressosInteira;
