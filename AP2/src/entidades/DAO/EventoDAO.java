@@ -52,7 +52,7 @@ import java.util.Scanner;
             for (Evento evento : eventos) {
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
-                    evento.setData(LocalDate novaData);
+                    evento.setData(novaData);
                     return;
                 }
             }

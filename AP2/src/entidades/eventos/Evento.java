@@ -1,4 +1,6 @@
 package entidades.eventos;
+import java.time.LocalDate;
+
 import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
@@ -80,7 +82,7 @@ public abstract class Evento {
         this.nome = novoNome;
     }
 
-    public void setData(String novaData) {
+    public void setData(LocalDate novaData) {
         this.data = novaData;
     }
 
