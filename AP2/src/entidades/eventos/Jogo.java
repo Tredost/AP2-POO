@@ -1,11 +1,12 @@
 package entidades.eventos;
 
+import java.time.LocalDate;
 
 public class Jogo extends Evento {
     private String esporte, equipe1, equipe2;
 
-    public Jogo(String nomeEvento, String dataEvento, String localEvento, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
-        super(nomeEvento, dataEvento, localEvento, ingressosInteira, ingressosMeia, precoCheio);
+    public Jogo(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
+        super(nome, data, local, ingressosInteira, ingressosMeia, precoCheio);
         this.esporte = esporte;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;

@@ -1,14 +1,14 @@
 package entidades.DAO;
 import entidades.eventos.Evento;
-import java.io.BufferedReader;
+import entidades.eventos.Exposicao;
+import entidades.eventos.Jogo;
+import entidades.eventos.Show;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 
     public class EventoDAO {
@@ -30,47 +30,56 @@ import java.util.Scanner;
             }
         }
 
-        public void adicionarEvento(Scanner leitor) {
-    
-        }
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
+            // verificar se ja existe
+            this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
 
-        public void removerEvento(Scanner leitor) {
-            System.out.print("Informe o nome do evento a ser removido: ");
-            String nome = leitor.nextLine();
-            for (Evento evento : eventos) {
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
+            // verificar se ja existe
+            this.eventos.add(new Jogo(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, esporte, equipe1, equipe2));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
+
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
+            // verificar se ja existe
+            this.eventos.add(new Show(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, nomeArtista, generoMusical));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
+
+        public String removerEvento(String nome) {
+            for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     eventos.remove(evento);
-                    System.out.println("Evento removido com sucesso!");
-                    break;
+                    return "Evento removido com sucesso!";
                 }
             }
-            System.err.println("Matricula não encontrada!");
+            return "Matricula não encontrada!";
         }
 
-        public void atualizarEvento(String nome, LocalDate novaData, String novoLocal) {
-            
-            for (Evento evento : eventos) {
+        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
+            for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
                     evento.setData(novaData);
-                    return;
+                    return "Evento atualizado com sucesso!";
+
                 }
             }
-            System.err.println("Matrícula não encontrada!\n");
+            return "Evento não encontrado!\n";
         }
 
-        public Evento buscarEvento(Scanner leitor) {
-            System.out.print("Digite o nome do evento: ");
-            String nome = leitor.nextLine();
-            for (Evento evento : eventos) {
+        public Evento buscarEvento(String nome) {
+            for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     return evento;
                 }
             }
-            System.err.println("Evento não encontrado!");
             return null;
         }
 
+        @Override
         public String toString() {
             String listaEventos = "";
 

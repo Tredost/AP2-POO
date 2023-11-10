@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
-    private String nome, data, local;
+    private String nome, local;
+    private LocalDate data;
     private int ingressosInteira, ingressosMeia;
     private double precoCheio;
     protected String tipo;
 
-    public Evento(String nome, String data, String local, int ingressosInteira, int ingressosMeia, double precoCheio) {
+    public Evento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio) {
         this.nome = nome;
         this.data = data;
         this.local = local;
@@ -52,7 +53,7 @@ public abstract class Evento {
         return this.nome;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return this.data;
     }
 

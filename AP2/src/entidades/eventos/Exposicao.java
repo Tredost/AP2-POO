@@ -1,11 +1,12 @@
 package entidades.eventos;
 
+import java.time.LocalDate;
 
 public class Exposicao extends Evento {
     private int idadeMinima, duracaoDias;
 
-    public Exposicao(String nomeEvento, String dataEvento, String localEvento, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
-        super(nomeEvento, dataEvento, localEvento, ingressosInteira, ingressosMeia, precoCheio);
+    public Exposicao(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
+        super(nome, data, local, ingressosInteira, ingressosMeia, precoCheio);
         this.idadeMinima = idadeMinima;
         this.duracaoDias = duracaoDias;
         this.tipo = "Exposição";
