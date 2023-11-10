@@ -3,14 +3,19 @@ import java.util.Scanner;
 import entidades.LeitoraDeDados;
 import entidades.eventos.Evento;
 import entidades.ingressos.Ingresso;
+import dao.EventoDAO;
+import dao.IngressoDAO;
 
 public class Gestor {
     public static void rodarGestor() {
+
+        EventoDAO eventos = new EventoDAO();
         Scanner leitor = new Scanner(System.in);
         Evento evento = null;
         Ingresso ingresso = null;
+        boolean executando = true;
 
-        while (true) {
+        while (executando) {
             System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n");
             int opcao = leitor.nextInt();
 
@@ -20,7 +25,7 @@ public class Gestor {
                     evento = LeitoraDeDados.cadastrarEvento(leitor);
                     break;
                 case 2:
-                    if (evento != null) {
+                    if (eventos != null) {
                         ingresso = LeitoraDeDados.comprarIngresso(leitor, evento);
                     } else {
                         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
@@ -28,7 +33,7 @@ public class Gestor {
                     break;
 
                 case 3:
-                    if (evento != null) {
+                    if (eventos != null) {
                         System.out.println("Informações:\n" + evento);
                     } else {
                         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
@@ -41,6 +46,20 @@ public class Gestor {
                     } else {
                         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
                     }
+                    break;
+
+                case 5:
+                    if (eventos != null) {
+                        System.out.println(eventos);
+                    } else {
+                        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+                    }
+                    break;
+
+                case 6:
+                    eventos.salvarDados();
+                    executando = false;
+                    System.out.println("Salvando e encerrando o programa!");
                     break;
 
                 default:

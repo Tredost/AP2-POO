@@ -2,6 +2,7 @@ package entidades;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import gestor.Gestor;
 import entidades.eventos.Evento;
 import entidades.eventos.Exposicao;
 import entidades.eventos.Jogo;
@@ -38,7 +39,6 @@ public static Evento cadastrarEvento(Scanner leitor) {
     System.out.println("Qual nome do evento?\n");
     String nome = leitor.nextLine();
 
-    // experimento de data
     System.out.println("Qual a data do evento (dia/mês/ano)?\n");
     String dataStr = leitor.nextLine();
     DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
