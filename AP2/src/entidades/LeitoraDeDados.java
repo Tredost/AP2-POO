@@ -13,7 +13,7 @@ import entidades.ingressos.Ingresso;
 import entidades.ingressos.TipoIngresso;
 import entidades.ingressos.IngShow.EspacoEnum;
 
-public class Cli {
+public class LeitoraDeDados {
 Scanner leitor = new Scanner(System.in);
 static int quantidadeIngressoUltimaVenda = 0;
 
@@ -270,13 +270,6 @@ public static void consultarIngressosRestantes(Evento evento) {
     "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n");
 }
 
-<<<<<<< HEAD
-=======
-public static void informacaoUltimaVenda (Evento evento, Ingresso ingresso) {
-    System.out.println(evento.getTipo() + ": " + evento.getNome() + "\nLocal: " + evento.getLocal() + "\nData: " + evento.getData() + "\nQuantidade de ingressos vendidos: " + quantidadeIngressoUltimaVenda + ingresso);
-}
-
->>>>>>> esther
 }
 
 
