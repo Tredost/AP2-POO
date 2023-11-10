@@ -46,15 +46,15 @@ public abstract class Evento {
 
     // GETTERS
 
-    public String getNomeEvento() {
+    public String getNome() {
         return this.nome;
     }
 
-    public String getDataEvento() {
+    public String getData() {
         return this.data;
     }
 
-    public String getLocalEvento() {
+    public String getLocal() {
         return this.local;
     }
 
@@ -76,15 +76,15 @@ public abstract class Evento {
 
     // SETTERS
 
-    public void setNomeEvento(String novoNome) {
+    public void setNome(String novoNome) {
         this.nome = novoNome;
     }
 
-    public void setDataEvento(String novaData) {
+    public void setData(String novaData) {
         this.data = novaData;
     }
 
-    public void setLocalEvento(String novoLocal) {
+    public void setLocal(String novoLocal) {
         this.local = novoLocal;
     }
 
