@@ -2,15 +2,15 @@ package entidades.eventos;
 import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
-    private String nomeEvento, dataEvento, localEvento;
+    private String nome, data, local;
     private int ingressosInteira, ingressosMeia, ingressosInteiraOriginal, ingressosMeiaOriginal;
     private double precoCheio;
     protected String tipo;
 
-    public Evento(String nomeEvento, String dataEvento, String localEvento, int ingressosInteira, int ingressosMeia, double precoCheio) {
-        this.nomeEvento = nomeEvento;
-        this.dataEvento = dataEvento;
-        this.localEvento = localEvento;
+    public Evento(String nome, String data, String local, int ingressosInteira, int ingressosMeia, double precoCheio) {
+        this.nome = nome;
+        this.data = data;
+        this.local = local;
         this.ingressosInteiraOriginal = ingressosInteira;
         this.ingressosMeiaOriginal = ingressosMeia;
         this.ingressosInteira = ingressosInteira;
@@ -40,9 +40,9 @@ public abstract class Evento {
     // toString
 
     public String toString() {
-        return this.nomeEvento + "\n" +
-            "Data: " + this.dataEvento + "\n" +
-            "Local: " + this.localEvento + "\n" +
+        return this.nome + "\n" +
+            "Data: " + this.data + "\n" +
+            "Local: " + this.local + "\n" +
             "Quantidade de ingressos inteira: " + this.ingressosInteiraOriginal + "\n" +
             "Quantidade de ingressos meia: " + this.ingressosMeiaOriginal + "\n" +
             "Preço cheio do ingresso: R$ " + String.format("%.2f", this.precoCheio);
@@ -51,15 +51,15 @@ public abstract class Evento {
     // GETTERS
 
     public String getNomeEvento() {
-        return this.nomeEvento;
+        return this.nome;
     }
 
     public String getDataEvento() {
-        return this.dataEvento;
+        return this.data;
     }
 
     public String getLocalEvento() {
-        return this.localEvento;
+        return this.local;
     }
 
     public int getIngressosInteiraOriginal() {
@@ -90,15 +90,15 @@ public abstract class Evento {
     // SETTERS
 
     public void setNomeEvento(String novoNome) {
-        this.nomeEvento = novoNome;
+        this.nome = novoNome;
     }
 
     public void setDataEvento(String novaData) {
-        this.dataEvento = novaData;
+        this.data = novaData;
     }
 
     public void setLocalEvento(String novoLocal) {
-        this.localEvento = novoLocal;
+        this.local = novoLocal;
     }
 
     public void setIngressosInteira(int novaQntd) {

@@ -34,13 +34,13 @@ public static Evento cadastrarEvento(Scanner leitor) {
     leitor.nextLine();
 
     System.out.println("Qual nome do evento?\n");
-    String nomeEvento = leitor.nextLine();
+    String nome = leitor.nextLine();
 
     System.out.println("Qual a data do evento?\n");
-    String dataEvento = leitor.nextLine();
+    String data = leitor.nextLine();
 
     System.out.println("Qual o local do evento?\n");
-    String localEvento = leitor.nextLine();
+    String local = leitor.nextLine();
 
     System.out.println("Quantos ingressos INTEIRA existem?\n");
     int ingressosInteira = leitor.nextInt();
@@ -61,7 +61,7 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Quantos dias de duração?\n");
             int duracaoDias = leitor.nextInt();
 
-            return new Exposicao(nomeEvento, dataEvento, localEvento, ingressosInteira, ingressosMeia, precoCheio, idadeMinima, duracaoDias);
+            return new Exposicao(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, idadeMinima, duracaoDias);
 
         case 2:
 
@@ -76,7 +76,7 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Qual a segunda equipe?\n");
             String equipe2 = leitor.nextLine();
 
-            return new Jogo(nomeEvento, dataEvento, localEvento, ingressosInteira, ingressosMeia, precoCheio, esporte, equipe1, equipe2);
+            return new Jogo(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, esporte, equipe1, equipe2);
 
         case 3:
             leitor.nextLine();
@@ -87,7 +87,7 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Qual o gênero musical?\n");
             String generoMusical = leitor.nextLine();
 
-            return new Show(nomeEvento, dataEvento, localEvento, ingressosInteira, ingressosMeia, precoCheio, nomeArtista, generoMusical);
+            return new Show(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, nomeArtista, generoMusical);
 
         default:
 
