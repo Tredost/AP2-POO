@@ -7,10 +7,9 @@ public class App {
         Scanner leitor = new Scanner(System.in);
         Evento evento = null;
         Ingresso ingresso = null;
-        Ingresso ultimaVenda = null;
 
         while (true) {
-            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Informações da última venda\n");
+            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n");
             int opcao = leitor.nextInt();
 
             switch (opcao) {
@@ -21,9 +20,6 @@ public class App {
                 case 2:
                     if (evento != null) {
                         ingresso = Cli.comprarIngresso(leitor, evento);
-                        if (ingresso != null) {
-                            ultimaVenda = ingresso;
-                        }
                     } else {
                         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
                     }
@@ -42,14 +38,6 @@ public class App {
                         Cli.consultarIngressosRestantes(evento);
                     } else {
                         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                    }
-                    break;
-
-                case 5:
-                    if (ultimaVenda != null) {
-                        Cli.informacaoUltimaVenda(evento, ultimaVenda);
-                    } else {
-                        System.out.println("NENHUM INGRESSO VENDIDO!\n");
                     }
                     break;
 
