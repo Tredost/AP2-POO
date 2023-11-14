@@ -16,13 +16,14 @@ public class Gestor {
         boolean executando = true;
 
         while (executando) {
-            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n");
+            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
             int opcao = leitor.nextInt();
 
             switch (opcao) {
 
                 case 1:
                     evento = LeitoraDeDados.cadastrarEvento(leitor);
+                    eventos.adicionarEvento(evento);
                     break;
                 case 2:
                     if (eventos != null) {
