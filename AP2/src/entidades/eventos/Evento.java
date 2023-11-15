@@ -1,6 +1,5 @@
 package entidades.eventos;
 import java.time.LocalDate;
-
 import entidades.ingressos.TipoIngresso;
 
 public abstract class Evento {
