@@ -42,11 +42,9 @@ public class Gestor {
                         break;
 
                     case 4:
-                        if (evento != null) {
-                            LeitoraDeDados.consultarIngressosRestantes(evento);
-                        } else {
-                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                        }
+                        nome = LeitoraDeDados.getNome(leitor);
+                        evento = (eventos.buscarEvento(nome));
+                        System.out.println(eventos.consultarIngressosRestantes(evento));
                         break;
 
                     case 5:

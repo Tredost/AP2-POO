@@ -265,11 +265,6 @@ public static void emitirRecibo(Evento evento, Ingresso ingresso, TipoIngresso t
     System.out.println("Compra realizada!\n  " + quantidade + "x " + tipoIngresso + "\n  TOTAL: R$ " + String.format("%.2f", valor) + "\n");
 }
 
-public static void consultarIngressosRestantes(Evento evento) {
-    System.out.println("Quantidade de ingressos inteiras restantes: "+ evento.getIngressosInteira() +
-    "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n");
-}
-
 public static String getNome(Scanner leitor){
     System.out.println("Digite o nome do evento: ");
     leitor.nextLine();
@@ -288,7 +283,6 @@ public static LocalDate getNovaData(Scanner leitor) {
     LocalDate data = LocalDate.parse(dataStr, formatador);
     return data;
 }
-
 
 }
 

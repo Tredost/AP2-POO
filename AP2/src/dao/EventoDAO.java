@@ -56,13 +56,18 @@ import java.util.List;
             return "Evento não encontrado!\n";
         }
 
-        public String buscarEvento(String nome) {
+        public String consultarIngressosRestantes(Evento evento) {
+            return "Quantidade de ingressos inteiras restantes: "+ evento.getIngressosInteira() +
+            "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n";
+        }
+
+        public Evento buscarEvento(String nome) {
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
-                    return evento.toString();
+                    return evento;
                 }
             }
-            return "Evento não encontrado!\n";
+            return null;
         }
 
         @Override
