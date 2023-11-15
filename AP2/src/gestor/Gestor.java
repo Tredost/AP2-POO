@@ -18,7 +18,7 @@ public class Gestor {
         String nome;
 
         while (executando) {
-            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  8 - Atualizar evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
+            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  8 - Atualizar evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Buscar evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
             int opcao = leitor.nextInt();
 
             try {
@@ -37,11 +37,8 @@ public class Gestor {
                         break;
 
                     case 3:
-                        if (eventos != null) {
-                            System.out.println("Informações:\n" + evento);
-                        } else {
-                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                        }
+                        nome = LeitoraDeDados.getNome(leitor);
+                        System.out.println(eventos.buscarEvento(nome));
                         break;
 
                     case 4:
@@ -76,6 +73,11 @@ public class Gestor {
                         String novoLocal = LeitoraDeDados.getNovoLocal(leitor);
                         LocalDate novaData = LeitoraDeDados.getNovaData(leitor);
                         System.out.println(eventos.atualizarEvento(nome, novoLocal, novaData));
+                        break;
+
+                    case 9:
+                        nome = LeitoraDeDados.getNome(leitor);
+                        System.out.println(eventos.removerEvento(nome));
                         break;
 
                     default:

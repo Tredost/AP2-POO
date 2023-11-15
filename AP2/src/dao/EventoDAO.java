@@ -56,13 +56,13 @@ import java.util.List;
             return "Evento não encontrado!\n";
         }
 
-        public Evento buscarEvento(String nome) {
+        public String buscarEvento(String nome) {
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
-                    return evento;
+                    return evento.toString();
                 }
             }
-            return null;
+            return "Evento não encontrado!\n";
         }
 
         @Override
