@@ -16,7 +16,6 @@ import entidades.ingressos.IngShow.EspacoEnum;
 
 public class LeitoraDeDados {
 Scanner leitor = new Scanner(System.in);
-static int quantidadeIngressoUltimaVenda = 0;
 
 
 public static Evento cadastrarEvento(Scanner leitor) {
@@ -175,7 +174,6 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
                 }
             }
 
-            quantidadeIngressoUltimaVenda = quantidade;
             emitirRecibo(evento, ingresso, tipoIngresso, quantidade);
             return ingresso;
 
@@ -210,7 +208,6 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
                 }
             }
 
-            quantidadeIngressoUltimaVenda = quantidade;
             emitirRecibo(evento, ingresso, tipoIngresso, quantidade);
             return ingresso;
 
@@ -250,7 +247,6 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
                 }
             }
 
-            quantidadeIngressoUltimaVenda = quantidade;
             emitirRecibo(evento, ingresso, tipoIngresso, quantidade);
             return ingresso;
 
