@@ -19,7 +19,7 @@ public class Gestor {
 
         while (executando) {
             System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  8 - Atualizar evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Buscar evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
-            int opcao = leitor.nextInt();
+            int opcao = LeitoraDeDados.getOpcao(leitor);
 
             try {
                 switch (opcao) {

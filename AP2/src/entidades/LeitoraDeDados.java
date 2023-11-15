@@ -284,6 +284,10 @@ public static LocalDate getNovaData(Scanner leitor) {
     return data;
 }
 
+public static Integer getOpcao(Scanner leitor){
+    return leitor.nextInt();
+}
+
 }
 
 
