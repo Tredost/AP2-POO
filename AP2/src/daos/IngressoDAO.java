@@ -1,8 +1,8 @@
-package dao;
+package daos;
 import entidades.ingressos.Ingresso;
 
     public class IngressoDAO {
-        
+
 
 
 
@@ -15,6 +15,6 @@ import entidades.ingressos.Ingresso;
 
         public String toString() {
             return " ";
-        }        
+        }
     }
 

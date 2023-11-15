@@ -1,4 +1,4 @@
-package dao;
+package daos;
 import entidades.eventos.Evento;
 import entidades.eventos.Exposicao;
 import entidades.eventos.Jogo;

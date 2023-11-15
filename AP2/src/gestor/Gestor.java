@@ -1,11 +1,12 @@
 package gestor;
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import daos.EventoDAO;
+import daos.IngressoDAO;
 import entidades.LeitoraDeDados;
 import entidades.eventos.Evento;
 import entidades.ingressos.Ingresso;
-import dao.EventoDAO;
-import dao.IngressoDAO;
 
 public class Gestor {
     public static void rodarGestor() {
@@ -75,7 +76,7 @@ public class Gestor {
                         break;
 
                     case 9:
-                        
+
                         break;
 
                     default:
