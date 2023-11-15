@@ -18,7 +18,7 @@ public class Gestor {
         String nome;
 
         while (executando) {
-            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  8 - Atualizar evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Buscar evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
+            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Atualizar evento\n  3 - Remover evento\n  4 - Comprar ingressos\n  5 - Buscar evento\n  6 - Informações sobre quantidade de ingressos restantes\n  7 - Listar eventos\n  8 - Salvar e sair");
             int opcao = LeitoraDeDados.getOpcao(leitor);
 
             try {
@@ -28,7 +28,20 @@ public class Gestor {
                         evento = LeitoraDeDados.cadastrarEvento(leitor);
                         System.out.println(eventos.adicionarEvento(evento));
                         break;
+
                     case 2:
+                        nome = LeitoraDeDados.getNome(leitor);
+                        String novoLocal = LeitoraDeDados.getNovoLocal(leitor);
+                        LocalDate novaData = LeitoraDeDados.getNovaData(leitor);
+                        System.out.println(eventos.atualizarEvento(nome, novoLocal, novaData));
+                        break;
+
+                    case 3:
+                        nome = LeitoraDeDados.getNome(leitor);
+                        System.out.println(eventos.removerEvento(nome));
+                        break;
+
+                    case 4:
                         if (eventos != null) {
                             ingresso = LeitoraDeDados.comprarIngresso(leitor, evento);
                         } else {
@@ -36,18 +49,18 @@ public class Gestor {
                         }
                         break;
 
-                    case 3:
+                    case 5:
                         nome = LeitoraDeDados.getNome(leitor);
                         System.out.println(eventos.buscarEvento(nome));
                         break;
 
-                    case 4:
+                    case 6:
                         nome = LeitoraDeDados.getNome(leitor);
                         evento = (eventos.buscarEvento(nome));
                         System.out.println(eventos.consultarIngressosRestantes(evento));
                         break;
 
-                    case 5:
+                    case 7:
                         if (eventos != null) {
                             System.out.println(eventos);
                         } else {
@@ -55,27 +68,14 @@ public class Gestor {
                         }
                         break;
 
-                    case 6:
+                    case 8:
                         eventos.salvarDados();
                         executando = false;
                         System.out.println("Salvando e encerrando o programa!");
                         break;
 
-                    case 7:
-                        nome = LeitoraDeDados.getNome(leitor);
-                        System.out.println(eventos.removerEvento(nome));
-                        break;
-
-                    case 8:
-                        nome = LeitoraDeDados.getNome(leitor);
-                        String novoLocal = LeitoraDeDados.getNovoLocal(leitor);
-                        LocalDate novaData = LeitoraDeDados.getNovaData(leitor);
-                        System.out.println(eventos.atualizarEvento(nome, novoLocal, novaData));
-                        break;
-
                     case 9:
-                        nome = LeitoraDeDados.getNome(leitor);
-                        System.out.println(eventos.removerEvento(nome));
+                        
                         break;
 
                     default:
