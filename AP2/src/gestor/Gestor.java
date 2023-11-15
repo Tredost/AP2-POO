@@ -52,7 +52,11 @@ public class Gestor {
 
                     case 5:
                         nome = LeitoraDeDados.getNome(leitor);
-                        System.out.println(eventos.buscarEvento(nome));
+                        if (eventos.buscarEvento(nome) != null) {
+                            System.out.println(eventos.buscarEvento(nome));
+                        } else {
+                            System.out.println("Evento não encontrado!\n");
+                        }
                         break;
 
                     case 6:
