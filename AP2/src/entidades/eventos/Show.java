@@ -12,13 +12,9 @@ public class Show extends Evento {
         this.tipo = "Show";
     }
 
-    // toString
-
     @Override
-    public String toString() {
-        return "\nShow: " + super.toString() + "\n" +
-            "Artista: " + this.nomeArtista + "\n" +
-            "Gênero musical: " + this.generoMusical + "\n";
+    public String toDados() {
+        return super.toDados() + "|" + getNomeArtista() + "|" + getGeneroMusical();
     }
 
     // GETTERS
@@ -41,6 +37,14 @@ public class Show extends Evento {
         this.generoMusical = novoGenero;
     }
 
+    // toString
+
+    @Override
+    public String toString() {
+        return "\nShow: " + super.toString() + "\n" +
+            "Artista: " + this.nomeArtista + "\n" +
+            "Gênero musical: " + this.generoMusical + "\n";
+    }
 
 }
 

@@ -12,13 +12,9 @@ public class Exposicao extends Evento {
         this.tipo = "Exposição";
     }
 
-    // toString
-
     @Override
-    public String toString() {
-        return "\nExposição: " + super.toString() + "\n" +
-            "Idade mínima recomendada: " + this.idadeMinima + " anos\n" +
-            "Duração: " + this.duracaoDias + " dias\n";
+    public String toDados() {
+        return super.toDados() + "|" + getIdadeMinima() + "|" + getDuracaoDias();
     }
 
     // GETTERS
@@ -40,6 +36,16 @@ public class Exposicao extends Evento {
     public void setDuracaoDias(int novaDuracao) {
         this.duracaoDias = novaDuracao;
     }
+
+    // toString
+
+    @Override
+    public String toString() {
+        return "\nExposição: " + super.toString() + "\n" +
+            "Idade mínima recomendada: " + this.idadeMinima + " anos\n" +
+            "Duração: " + this.duracaoDias + " dias\n";
+    }
+
 }
 
 

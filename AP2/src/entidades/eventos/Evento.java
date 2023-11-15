@@ -38,13 +38,10 @@ public abstract class Evento {
         }
     }
 
-    // toString
+    // DADOS
 
-    public String toString() {
-        return this.nome + "\n" +
-            "Data: " + this.data + "\n" +
-            "Local: " + this.local + "\n" +
-            "Preço cheio do ingresso: R$ " + String.format("%.2f", this.precoCheio);
+    public String toDados() {
+        return getTipo() + "|" + getNome() + "|" + getLocal() + "|" + getIngressosInteira() + "|" + getIngressosMeia() + "|" + getPrecoCheio();
     }
 
     // GETTERS
@@ -107,6 +104,14 @@ public abstract class Evento {
         this.tipo = novoTipo;
     }
 
+    // toString
+
+    public String toString() {
+        return this.nome + "\n" +
+            "Data: " + this.data + "\n" +
+            "Local: " + this.local + "\n" +
+            "Preço cheio do ingresso: R$ " + String.format("%.2f", this.precoCheio);
+    }
 }
 
 

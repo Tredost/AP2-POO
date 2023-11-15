@@ -13,14 +13,11 @@ public class Jogo extends Evento {
         this.tipo = "Jogo";
     }
 
-    // toString
-
     @Override
-    public String toString() {
-        return "\nJogo: " + super.toString() + "\n" +
-            "Esporte: " + this.esporte + "\n" +
-            "Equipes: " + this.equipe1 + " x " + this.equipe2 + "\n";
+    public String toDados() {
+        return super.toDados() + "|" + getEsporte() + "|" + getEquipe1() + "|" + getEquipe2();
     }
+
 
     // GETTERS
 
@@ -49,6 +46,16 @@ public class Jogo extends Evento {
     public void setEquipe2(String novaEquipe) {
         this.equipe2 = novaEquipe;
     }
+
+    // toString
+
+    @Override
+    public String toString() {
+        return "\nJogo: " + super.toString() + "\n" +
+            "Esporte: " + this.esporte + "\n" +
+            "Equipes: " + this.equipe1 + " x " + this.equipe2 + "\n";
+    }
+
 }
 
 

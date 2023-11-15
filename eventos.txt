@@ -1,2 +1,2 @@
-rr|2001-02-05|rio
-oi|2001-09-03|rio
+Show|Juba|itabainga|100|100|10.0|10|10
+Exposição|oi|ie|32|23|23.0|34|45

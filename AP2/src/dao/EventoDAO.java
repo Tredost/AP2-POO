@@ -22,7 +22,7 @@ import java.util.List;
         public void salvarDados() {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoEventos, false))) {
                 for (Evento evento : this.eventos) {
-                    writer.write(evento.getNome() + "|" + evento.getData() + "|" + evento.getLocal());
+                    writer.write(evento.toDados());
                     writer.newLine();
                 }
             } catch (IOException e) {
