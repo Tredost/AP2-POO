@@ -1,4 +1,5 @@
 package gestor;
+import java.time.LocalDate;
 import java.util.Scanner;
 import entidades.LeitoraDeDados;
 import entidades.eventos.Evento;
@@ -14,62 +15,74 @@ public class Gestor {
         Evento evento = null;
         Ingresso ingresso = null;
         boolean executando = true;
+        String nome;
 
         while (executando) {
-            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
+            System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  8 - Atualizar evento\n  7 - Remover evento\n  2 - Comprar ingressos\n  3 - Informações do evento\n  4 - Informações sobre quantidade de ingressos restantes\n  5 - Listar eventos\n  6 - Salvar e sair");
             int opcao = leitor.nextInt();
 
-            switch (opcao) {
+            try {
+                switch (opcao) {
 
-                case 1:
-                    evento = LeitoraDeDados.cadastrarEvento(leitor);
-                    System.out.println(eventos.adicionarEvento(evento));
-                    break;
-                case 2:
-                    if (eventos != null) {
-                        ingresso = LeitoraDeDados.comprarIngresso(leitor, evento);
-                    } else {
-                        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                    }
-                    break;
+                    case 1:
+                        evento = LeitoraDeDados.cadastrarEvento(leitor);
+                        System.out.println(eventos.adicionarEvento(evento));
+                        break;
+                    case 2:
+                        if (eventos != null) {
+                            ingresso = LeitoraDeDados.comprarIngresso(leitor, evento);
+                        } else {
+                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+                        }
+                        break;
 
-                case 3:
-                    if (eventos != null) {
-                        System.out.println("Informações:\n" + evento);
-                    } else {
-                        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                    }
-                    break;
+                    case 3:
+                        if (eventos != null) {
+                            System.out.println("Informações:\n" + evento);
+                        } else {
+                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+                        }
+                        break;
 
-                case 4:
-                    if (evento != null) {
-                        LeitoraDeDados.consultarIngressosRestantes(evento);
-                    } else {
-                        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                    }
-                    break;
+                    case 4:
+                        if (evento != null) {
+                            LeitoraDeDados.consultarIngressosRestantes(evento);
+                        } else {
+                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+                        }
+                        break;
 
-                case 5:
-                    if (eventos != null) {
-                        System.out.println(eventos);
-                    } else {
-                        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                    }
-                    break;
+                    case 5:
+                        if (eventos != null) {
+                            System.out.println(eventos);
+                        } else {
+                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+                        }
+                        break;
 
-                case 6:
-                    eventos.salvarDados();
-                    executando = false;
-                    System.out.println("Salvando e encerrando o programa!");
-                    break;
+                    case 6:
+                        eventos.salvarDados();
+                        executando = false;
+                        System.out.println("Salvando e encerrando o programa!");
+                        break;
 
-                case 7:
-                    String nome = LeitoraDeDados.getNome(leitor);
-                    System.out.println(eventos.removerEvento(nome));
-                    break;
+                    case 7:
+                        nome = LeitoraDeDados.getNome(leitor);
+                        System.out.println(eventos.removerEvento(nome));
+                        break;
 
-                default:
-                    System.out.println("OPÇÃO NÃO EXISTE!\n");
+                    case 8:
+                        nome = LeitoraDeDados.getNome(leitor);
+                        String novoLocal = LeitoraDeDados.getNovoLocal(leitor);
+                        LocalDate novaData = LeitoraDeDados.getNovaData(leitor);
+                        System.out.println(eventos.atualizarEvento(nome, novoLocal, novaData));
+                        break;
+
+                    default:
+                        System.out.println("OPÇÃO NÃO EXISTE!\n");
+                }
+            }  catch(Exception e) {
+                System.err.println(e);
             }
         }
     }

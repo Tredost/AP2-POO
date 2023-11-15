@@ -271,10 +271,24 @@ public static void consultarIngressosRestantes(Evento evento) {
 }
 
 public static String getNome(Scanner leitor){
-    System.out.println("Digite o nome do evento a ser removido: ");
+    System.out.println("Digite o nome do evento: ");
     leitor.nextLine();
     return leitor.nextLine();
 }
+
+public static String getNovoLocal(Scanner leitor) {
+    System.out.println("Digite o novo local: ");
+    return leitor.nextLine();
+}
+
+public static LocalDate getNovaData(Scanner leitor) {
+    System.out.println("Digite a nova data (dia/mês/ano)\n");
+    String dataStr = leitor.nextLine();
+    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate data = LocalDate.parse(dataStr, formatador);
+    return data;
+}
+
 
 }
 

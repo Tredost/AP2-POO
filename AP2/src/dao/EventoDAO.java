@@ -35,24 +35,6 @@ import java.util.List;
             return "Evento adicionado com sucesso!\n";
         }
 
-        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
-            // verificar se ja existe
-            this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
-            return "Evento adicionado com sucesso!";
-        } // msg de erro
-
-        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
-            // verificar se ja existe
-            this.eventos.add(new Jogo(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, esporte, equipe1, equipe2));
-            return "Evento adicionado com sucesso!";
-        } // msg de erro
-
-        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
-            // verificar se ja existe
-            this.eventos.add(new Show(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, nomeArtista, generoMusical));
-            return "Evento adicionado com sucesso!";
-        } // msg de erro
-
         public String removerEvento(String nome) {
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
@@ -60,7 +42,7 @@ import java.util.List;
                     return "Evento removido com sucesso!\n";
                 }
             }
-            return "Evento não encontrado!";
+            return "Evento não encontrado!\n";
         }
 
         public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
@@ -68,8 +50,7 @@ import java.util.List;
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
                     evento.setData(novaData);
-                    return "Evento atualizado com sucesso!";
-
+                    return "Evento atualizado com sucesso!\n";
                 }
             }
             return "Evento não encontrado!\n";
