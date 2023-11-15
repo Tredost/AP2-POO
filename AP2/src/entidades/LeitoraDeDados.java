@@ -270,6 +270,12 @@ public static void consultarIngressosRestantes(Evento evento) {
     "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n");
 }
 
+public static String getNome(Scanner leitor){
+    System.out.println("Digite o nome do evento a ser removido: ");
+    leitor.nextLine();
+    return leitor.nextLine();
+}
+
 }
 
 

@@ -32,7 +32,7 @@ import java.util.List;
 
         public String adicionarEvento(Evento evento) {
             this.eventos.add(evento);
-            return "abobora";
+            return "Evento adicionado com sucesso!\n";
         }
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
@@ -57,10 +57,10 @@ import java.util.List;
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     eventos.remove(evento);
-                    return "Evento removido com sucesso!";
+                    return "Evento removido com sucesso!\n";
                 }
             }
-            return "Matricula não encontrada!";
+            return "Evento não encontrado!";
         }
 
         public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
