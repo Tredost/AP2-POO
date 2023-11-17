@@ -7,6 +7,8 @@ import dao.IngressoDAO;
 import entidades.LeitoraDeDados;
 import entidades.eventos.Evento;
 import entidades.ingressos.Ingresso;
+import entidades.ingressos.TipoIngresso;
+import entidades.ingressos.IngShow.EspacoEnum;
 
 public class Gestor {
     public static void rodarGestor() {
@@ -24,7 +26,7 @@ public class Gestor {
 
         while (executando) {
             System.out.println("O que deseja fazer?\n  1 - Cadastrar novo evento\n  2 - Atualizar evento\n  3 - Remover evento\n  4 - Comprar ingressos\n  5 - Buscar evento\n  6 - Informações sobre quantidade de ingressos restantes\n  7 - Listar eventos\n  8 - Salvar e sair");
-            opcao = LeitoraDeDados.getOpcao(leitor);
+            opcao = LeitoraDeDados.getOpcao(leitor, 8);
 
             try {
                 switch (opcao) {
@@ -42,11 +44,7 @@ public class Gestor {
                         break;
 
                     case 4:
-                        if (eventos != null) {
-                            //ingresso = LeitoraDeDados.comprarIngresso(leitor, evento);
-                        } else {
-                            System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
-                        }
+                        comprarIngresso(leitor, eventos);
                         break;
 
                     case 5:
@@ -69,7 +67,7 @@ public class Gestor {
                         System.out.println("OPÇÃO NÃO EXISTE!\n");
                 }
             }  catch(Exception e) {
-                System.err.println(e);
+                System.err.println(e + "\n");
             }
         }
     }
@@ -79,9 +77,9 @@ public static void cadastrarEvento(Scanner leitor, EventoDAO eventos) {
     String nome, local, nomeArtista, generoMusical, esporte, equipe1, equipe2;
     LocalDate data;
     int opcao, ingressosInteira, ingressosMeia, idadeMinima, duracaoDias;
-    Double precoCheio; 
+    Double precoCheio;
     System.out.println("Qual tipo de evento deseja cadastar?\n  1 - Exposição\n  2 - Jogo\n  3 - Show\n");
-    opcao = LeitoraDeDados.getOpcao(leitor);
+    opcao = LeitoraDeDados.getOpcao(leitor, 3);
     nome = LeitoraDeDados.getNome(leitor);
     data = LeitoraDeDados.getData(leitor);
     local = LeitoraDeDados.getLocal(leitor);
@@ -93,14 +91,14 @@ public static void cadastrarEvento(Scanner leitor, EventoDAO eventos) {
         case 1:
             idadeMinima = LeitoraDeDados.getIdadeMinima(leitor);
             duracaoDias = LeitoraDeDados.getDuracaoDias(leitor);
-            System.out.println(eventos.adicionarEvento(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, idadeMinima, duracaoDias));        
+            System.out.println(eventos.adicionarEvento(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, idadeMinima, duracaoDias));
             break;
 
         case 2:
             esporte = LeitoraDeDados.getEsporte(leitor);
             equipe1 = LeitoraDeDados.getEquipe1(leitor);
             equipe2 = LeitoraDeDados.getEquipe2(leitor);
-            System.out.println(eventos.adicionarEvento(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, esporte, equipe1, equipe2));    
+            System.out.println(eventos.adicionarEvento(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, esporte, equipe1, equipe2));
             break;
 
         case 3:
@@ -153,6 +151,40 @@ public static void listarEventos(EventoDAO eventos) {
         System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
     }
 }
+
+public static void comprarIngresso(Scanner leitor, EventoDAO eventos) {
+    if (!eventos.isEmpty()) {
+        TipoIngresso tipoIngresso = LeitoraDeDados.getTipoIngresso(leitor);
+        String nome = LeitoraDeDados.getNome(leitor);
+        Evento evento = eventos.buscarEvento(nome);
+
+        switch (evento.getTipo()) {
+            case "Exposição":
+                boolean descontoSocial = LeitoraDeDados.getDescontoSocial(leitor);
+                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, descontoSocial));
+                break;
+
+            case "Jogo":
+                Double descontoTorcedor = LeitoraDeDados.getDescontoTorcedor(leitor);
+                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, descontoTorcedor));
+                break;
+
+            case "Show":
+                EspacoEnum espacoEnum = LeitoraDeDados.getEspacoEnum(leitor);
+                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, espacoEnum));
+                break;
+
+            default:
+                break;
+
+        }
+    } else {
+        System.out.println("CADASTRE UM EVENTO PRIMEIRO!\n");
+    }
+
+}
+
+
 
 public static boolean encerrarPrograma(EventoDAO eventos) {
     eventos.salvarDados();

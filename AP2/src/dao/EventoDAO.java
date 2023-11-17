@@ -30,8 +30,6 @@ import java.util.List;
             }
         }
 
-
-        //TA CERTO
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
             // verificar se ja existe
             this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
