@@ -3,21 +3,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import gestor.Gestor;
-import entidades.eventos.Evento;
-import entidades.eventos.Exposicao;
-import entidades.eventos.Jogo;
-import entidades.eventos.Show;
-import entidades.ingressos.IngExpo;
-import entidades.ingressos.IngJogo;
-import entidades.ingressos.IngShow;
-import entidades.ingressos.Ingresso;
 import entidades.ingressos.TipoIngresso;
 import entidades.ingressos.IngShow.EspacoEnum;
 
 public class LeitoraDeDados {
 
-public static Evento cadastrarEvento(Scanner leitor) {
-    Evento evento = null;
+/* public static void cadastrarEvento(Scanner leitor) {
+    
 
     System.out.println("Qual tipo de evento deseja cadastar?\n  1 - Exposição\n  2 - Jogo\n  3 - Show\n");
     int tipoEvento = leitor.nextInt();
@@ -63,7 +55,7 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Quantos dias de duração?\n");
             int duracaoDias = leitor.nextInt();
 
-            return new Exposicao(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, idadeMinima, duracaoDias);
+            
 
         case 2:
 
@@ -78,7 +70,7 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Qual a segunda equipe?\n");
             String equipe2 = leitor.nextLine();
 
-            return new Jogo(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, esporte, equipe1, equipe2);
+            
 
         case 3:
             leitor.nextLine();
@@ -89,13 +81,13 @@ public static Evento cadastrarEvento(Scanner leitor) {
             System.out.println("Qual o gênero musical?\n");
             String generoMusical = leitor.nextLine();
 
-            return new Show(nome, data, local, ingressosInteira, ingressosMeia, precoCheio, nomeArtista, generoMusical);
+        
 
         default:
 
-            return evento;
+        
     }
-}
+} 
 
 public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
     Ingresso ingresso = null;
@@ -227,7 +219,7 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
                 }
             }
 
-            ingresso = new IngShow(evento, tipoIngresso, espacoEnum);
+            ingresso = //besteira
 
             System.out.println("CONFIMA AS INFORMAÇÕES A SEGUIR:\n\nQuantidade: " + quantidade + "\n" +  ingresso + "\n  1 - SIM\n  2 - NÃO\n");
             confirmacao = leitor.nextInt();
@@ -245,19 +237,13 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
                 }
             }
 
-            emitirRecibo(evento, ingresso, tipoIngresso, quantidade);
+            
             return ingresso;
 
         default:
             return ingresso;
         }
-}
-
-public static void emitirRecibo(Evento evento, Ingresso ingresso, TipoIngresso tipoIngresso, int quantidade) {
-    double valor = ingresso.getPreco() * quantidade;
-    evento.venderIngresso(tipoIngresso, quantidade);
-    System.out.println("Compra realizada!\n  " + quantidade + "x " + tipoIngresso + "\n  TOTAL: R$ " + String.format("%.2f", valor) + "\n");
-}
+} */
 
 public static String getNome(Scanner leitor){
     System.out.println("Digite o nome do evento: ");
@@ -265,13 +251,41 @@ public static String getNome(Scanner leitor){
     return leitor.nextLine();
 }
 
-public static String getNovoLocal(Scanner leitor) {
-    System.out.println("Digite o novo local: ");
+public static int getIngressosInteira(Scanner leitor) {
+    System.out.println("Quantos ingressos INTEIRA existem?\n");
+    return leitor.nextInt();
+}
+
+public static int getIngressosMeia(Scanner leitor) {
+    System.out.println("Quantos ingressos MEIA existem?\n");
+    return leitor.nextInt();
+}
+
+public static Double getPrecoCheio(Scanner leitor) {
+    System.out.println("Qual o preço cheio do ingresso?\n");
+    return leitor.nextDouble();
+}
+
+public static String getLocal(Scanner leitor) {
+    System.out.println("Qual o local do evento?\n");
     return leitor.nextLine();
 }
 
+public static String getNovoLocal(Scanner leitor) {
+    System.out.println("Qual o novo local?\n");
+    return leitor.nextLine();
+}
+
+public static LocalDate getData(Scanner leitor) {
+    System.out.println("Qual a data do evento? (dia/mês/ano)\n");
+    String dataStr = leitor.nextLine();
+    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate data = LocalDate.parse(dataStr, formatador);
+    return data;
+}
+
 public static LocalDate getNovaData(Scanner leitor) {
-    System.out.println("Digite a nova data (dia/mês/ano)\n");
+    System.out.println("Qual a nova data? (dia/mês/ano)\n");
     String dataStr = leitor.nextLine();
     DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate data = LocalDate.parse(dataStr, formatador);
@@ -281,7 +295,42 @@ public static LocalDate getNovaData(Scanner leitor) {
 public static Integer getOpcao(Scanner leitor){
     return leitor.nextInt();
 }
+    
+public static int getIdadeMinima(Scanner leitor) {
+    System.out.println("Qual a idade mínima?\n");
+    return leitor.nextInt(); 
+}
 
+public static int getDuracaoDias(Scanner leitor) {
+    System.out.println("Quantos dias de duração?\n");
+    return leitor.nextInt(); 
+}
+
+public static String getNomeArtista(Scanner leitor) {
+    System.out.println("Qual o nome do artista?\n");
+    return leitor.nextLine();
+}
+
+public static String getGeneroMusical(Scanner leitor) {
+    System.out.println("Qual o gênero musical?\n");
+    return leitor.nextLine();
+}
+
+public static String getEsporte(Scanner leitor) {
+    System.out.println("Qual o esporte?\n");
+    return leitor.nextLine();
+}
+
+public static String getEquipe1(Scanner leitor) {
+    System.out.println("Qual a primeira equipe?\n");
+    return leitor.nextLine();
+}
+
+public static String getEquipe2(Scanner leitor) {
+    System.out.println("Qual a segunda equipe?\n");
+    return leitor.nextLine();
+}
+            
 }
 
 

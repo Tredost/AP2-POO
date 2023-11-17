@@ -1,4 +1,4 @@
-package daos;
+package dao;
 import entidades.eventos.Evento;
 import entidades.eventos.Exposicao;
 import entidades.eventos.Jogo;
@@ -30,10 +30,25 @@ import java.util.List;
             }
         }
 
-        public String adicionarEvento(Evento evento) {
-            this.eventos.add(evento);
-            return "Evento adicionado com sucesso!\n";
-        }
+
+        //TA CERTO
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
+            // verificar se ja existe
+            this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
+
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
+            // verificar se ja existe
+            this.eventos.add(new Jogo(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, esporte, equipe1, equipe2));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
+
+        public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
+            // verificar se ja existe
+            this.eventos.add(new Show(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, nomeArtista, generoMusical));
+            return "Evento adicionado com sucesso!";
+        } // msg de erro
 
         public String removerEvento(String nome) {
             for (Evento evento : this.eventos) {
@@ -43,6 +58,10 @@ import java.util.List;
                 }
             }
             return "Evento não encontrado!\n";
+        }
+
+        public boolean isEmpty() {
+            return this.eventos.isEmpty();
         }
 
         public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
