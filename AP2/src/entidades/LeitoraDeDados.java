@@ -246,10 +246,10 @@ public static Ingresso comprarIngresso(Scanner leitor, Evento evento) {
 } */
 
 public static String getNome(Scanner leitor){
-    System.out.println("Digite o nome do evento: ");
+    System.out.println("Qual o nome do evento? \n");
     leitor.nextLine();
     return leitor.nextLine();
-}
+} // adicionar excessão nome vazio
 
 public static int getIngressosInteira(Scanner leitor) {
     System.out.println("Quantos ingressos INTEIRA existem?\n");
@@ -312,6 +312,19 @@ public static int getIdadeMinima(Scanner leitor) {
 public static int getDuracaoDias(Scanner leitor) {
     System.out.println("Quantos dias de duração?\n");
     return leitor.nextInt();
+}
+
+public static int getQuantidade(Scanner leitor) {
+    System.out.println("Quantos ingressos deseja?\n");
+    int quantidade = leitor.nextInt();
+    while (true) {
+        if (quantidade <= 0) {
+            System.out.println("Quantidade inválida! Tente novamente.\n");
+            quantidade = leitor.nextInt();
+        } else {
+            return quantidade;
+        }
+    }
 }
 
 public static String getNomeArtista(Scanner leitor) {

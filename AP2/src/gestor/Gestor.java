@@ -155,23 +155,31 @@ public static void listarEventos(EventoDAO eventos) {
 public static void comprarIngresso(Scanner leitor, EventoDAO eventos) {
     if (!eventos.isEmpty()) {
         TipoIngresso tipoIngresso = LeitoraDeDados.getTipoIngresso(leitor);
+        int quantidade = LeitoraDeDados.getQuantidade(leitor);
         String nome = LeitoraDeDados.getNome(leitor);
         Evento evento = eventos.buscarEvento(nome);
-
+        if (!evento.isIngressoDisponivel(tipoIngresso, quantidade)) {
+            System.out.println("Não existem ingressos disponíveis para sua compra!\n");
+            return;
+        }
+        IngressoDAO ingressoDAO = new IngressoDAO();
         switch (evento.getTipo()) {
             case "Exposição":
                 boolean descontoSocial = LeitoraDeDados.getDescontoSocial(leitor);
-                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, descontoSocial));
+                System.out.println(ingressoDAO.criarIngresso(evento, tipoIngresso, descontoSocial));
+                evento.venderIngresso(tipoIngresso, quantidade);
                 break;
 
             case "Jogo":
                 Double descontoTorcedor = LeitoraDeDados.getDescontoTorcedor(leitor);
-                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, descontoTorcedor));
+                System.out.println(ingressoDAO.criarIngresso(evento, tipoIngresso, descontoTorcedor));
+                evento.venderIngresso(tipoIngresso, quantidade);
                 break;
 
             case "Show":
                 EspacoEnum espacoEnum = LeitoraDeDados.getEspacoEnum(leitor);
-                System.out.println(dao.IngressoDAO.criarIngresso(evento, tipoIngresso, espacoEnum));
+                System.out.println(ingressoDAO.criarIngresso(evento, tipoIngresso, espacoEnum));
+                evento.venderIngresso(tipoIngresso, quantidade);
                 break;
 
             default:
@@ -183,8 +191,6 @@ public static void comprarIngresso(Scanner leitor, EventoDAO eventos) {
     }
 
 }
-
-
 
 public static boolean encerrarPrograma(EventoDAO eventos) {
     eventos.salvarDados();

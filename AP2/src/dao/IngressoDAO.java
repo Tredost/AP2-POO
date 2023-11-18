@@ -13,30 +13,27 @@ import entidades.ingressos.IngJogo;
 import entidades.ingressos.TipoIngresso;
 
     public class IngressoDAO {
-        private static Ingresso ingresso;
-
+        private Ingresso ingresso;
 
         //criar ingresso recebendo os parâmetros da gestora, gestora puxa métodos da leitora
 
-
-        public static String criarIngresso(Evento evento, TipoIngresso tipoIngresso, EspacoEnum espacoEnum) {
-            ingresso = new IngShow(evento, tipoIngresso, espacoEnum);
-            return ingresso.toString();
+        public String criarIngresso(Evento evento, TipoIngresso tipoIngresso, EspacoEnum espacoEnum) {
+            this.ingresso = new IngShow(evento, tipoIngresso, espacoEnum);
+            return this.ingresso.toString();
         }
 
-        public static String criarIngresso(Evento evento, TipoIngresso tipoIngresso, boolean descontoSocial) {
-            ingresso = new IngExpo(evento, tipoIngresso, descontoSocial);
-            return ingresso.toString();
+        public String criarIngresso(Evento evento, TipoIngresso tipoIngresso, boolean descontoSocial) {
+            this.ingresso = new IngExpo(evento, tipoIngresso, descontoSocial);
+            return this.ingresso.toString();
         }
 
-        public static String criarIngresso(Evento evento, TipoIngresso tipoIngresso, Double descontoTorcedor) {
-            ingresso = new IngJogo(evento, tipoIngresso, descontoTorcedor);
+        public String criarIngresso(Evento evento, TipoIngresso tipoIngresso, Double descontoTorcedor) {
+            this.ingresso = new IngJogo(evento, tipoIngresso, descontoTorcedor);
             return "Evento adicionado com sucesso!";
         }
 
-
         public String toString() {
-            return ingresso.toString();
+            return this.ingresso.toString();
         }
     }
 
