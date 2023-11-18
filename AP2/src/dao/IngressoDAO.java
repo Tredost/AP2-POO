@@ -1,11 +1,6 @@
 package dao;
-import entidades.ingressos.Ingresso;
-
-import java.time.LocalDate;
 import entidades.eventos.Evento;
-import entidades.eventos.Exposicao;
-import entidades.eventos.Jogo;
-import entidades.eventos.Show;
+import entidades.ingressos.Ingresso;
 import entidades.ingressos.IngExpo;
 import entidades.ingressos.IngShow;
 import entidades.ingressos.IngShow.EspacoEnum;

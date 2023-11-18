@@ -66,8 +66,8 @@ public class Gestor {
                     default:
                         System.out.println("OPÇÃO NÃO EXISTE!\n");
                 }
-            }  catch(Exception e) {
-                System.err.println(e + "\n");
+            }  catch(Exception erro) {
+                System.err.println(erro + "\n");
             }
         }
     }
