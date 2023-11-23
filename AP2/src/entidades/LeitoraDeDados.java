@@ -328,6 +328,7 @@ public static int getQuantidade(Scanner leitor) {
 }
 
 public static String getNomeArtista(Scanner leitor) {
+    leitor.nextLine();
     System.out.println("Qual o nome do artista?\n");
     return leitor.nextLine();
 }
@@ -338,6 +339,7 @@ public static String getGeneroMusical(Scanner leitor) {
 }
 
 public static String getEsporte(Scanner leitor) {
+    leitor.nextLine();
     System.out.println("Qual o esporte?\n");
     return leitor.nextLine();
 }
