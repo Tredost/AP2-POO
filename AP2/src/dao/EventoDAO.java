@@ -62,7 +62,7 @@ import java.util.List;
             return this.eventos.isEmpty();
         }
 
-        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
+        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {   
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
@@ -86,6 +86,15 @@ import java.util.List;
             }
             return null;
         }
+
+        public String listarNomeDosEventos() {
+            String listaNomeEventos = "Nome dos eventos:" + "\n";
+
+            for (Evento evento : this.eventos){
+                listaNomeEventos += evento.getNome() + "\n"; 
+            }
+            return listaNomeEventos;
+        } 
 
         @Override
         public String toString() {
