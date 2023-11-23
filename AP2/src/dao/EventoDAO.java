@@ -31,20 +31,19 @@ import java.util.List;
         }
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
-           for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome) && evento.getData().equals(data) && evento.getLocal().equals(local) && evento.getIngressosInteira()==ingressosInteira && evento.getIngressosMeia()== ingressosMeia && evento.getPrecoCheio()==precoCheio /* especificos */) {
+            for (Evento evento : this.eventos) {
+                if (evento.getNome().equals(nome)) {
                     return "Evento já existente!\n";
                 } 
             } 
             this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
-            return "Evento adicionado com sucesso!\n";
-            }// msg de erro
+            return "Evento adicionado com sucesso!\n";}
+            // msg de erro
         
-            
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
             for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome) && evento.getData().equals(data) && evento.getLocal().equals(local) && evento.getIngressosInteira()==ingressosInteira && evento.getIngressosMeia()== ingressosMeia && evento.getPrecoCheio()==precoCheio /*especificos*/) {
+                if (evento.getNome().equals(nome)) {
                     return "Evento já existente!\n";
                 } 
             } 
@@ -55,7 +54,7 @@ import java.util.List;
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
            for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome) && evento.getData().equals(data) && evento.getLocal().equals(local) && evento.getIngressosInteira()==ingressosInteira && evento.getIngressosMeia()== ingressosMeia && evento.getPrecoCheio()==precoCheio /*especificos*/) {
+                if (evento.getNome().equals(nome)) {
                     return "Evento já existente!\n";
                 } 
             } 
