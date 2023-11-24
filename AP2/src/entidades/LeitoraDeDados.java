@@ -136,7 +136,7 @@ public static TipoIngresso getTipoIngresso() {
 }
 
 public static boolean getDescontoSocial() {
-    System.out.println("\nPossui desconto social?\n  1 - SIM\n  2 - NÃO: ");
+    System.out.println("\nPossui desconto social?\n  1 - SIM\n  2 - NÃO ");
     int descontoInt = leitor.nextInt();
 
     while (true) {
