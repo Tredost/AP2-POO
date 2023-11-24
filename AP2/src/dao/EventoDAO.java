@@ -31,36 +31,32 @@ import java.util.List;
         }
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, int idadeMinima, int duracaoDias) {
-            for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome)) {
-                    return "Evento já existente!\n";
-                } 
-            } 
-            this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
-            return "Evento adicionado com sucesso!\n";}
-            // msg de erro
+            if(!jaExiste(nome)){
+                this.eventos.add(new Exposicao(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, idadeMinima, duracaoDias));
+                return "\nEvento adicionado com sucesso!";
+            }
+                return "\nEvento já existente!";
+        }
+
         
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
-            for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome)) {
-                    return "Evento já existente!\n";
-                } 
-            } 
+            if(!jaExiste(nome)){
             this.eventos.add(new Jogo(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, esporte, equipe1, equipe2));
-            return "Evento adicionado com sucesso!";
-        }     // msg de erro           
+            return "\nEvento adicionado com sucesso!";
+        }
+            return "\nEvento já existente!";
+        }
+                     
         
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
-           for (Evento evento : this.eventos) {
-                if (evento.getNome().equals(nome)) {
-                    return "Evento já existente!\n";
-                } 
-            } 
+           if(!jaExiste(nome)){
             this.eventos.add(new Show(nome, data, local, ingressosInteira, ingressosMeia , precoCheio, nomeArtista, generoMusical));
-            return "Evento adicionado com sucesso!";
-            } // msg de erro  
+            return "\nEvento adicionado com sucesso!";
+            }
+            return "\nEvento já existente!";
+        }
 
         public String removerEvento(String nome) {
             for (Evento evento : this.eventos) {
@@ -69,26 +65,26 @@ import java.util.List;
                     return "Evento removido com sucesso!\n";
                 }
             }
-            return "Evento não encontrado!\n";
+            return "\nEvento não encontrado!";
         }
 
         public boolean isEmpty() {
             return this.eventos.isEmpty();
         }
 
-        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
+        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {   
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
                     evento.setData(novaData);
-                    return "Evento atualizado com sucesso!\n";
+                    return "\nEvento atualizado com sucesso!";
                 }
             }
-            return "Evento não encontrado!\n";
+            return "";
         }
 
         public String consultarIngressosRestantes(Evento evento) {
-            return "Quantidade de ingressos inteiras restantes: "+ evento.getIngressosInteira() +
+            return "\nQuantidade de ingressos inteiras restantes: "+ evento.getIngressosInteira() +
             "\nQuantidade de ingressos meia restantes: " + evento.getIngressosMeia() + "\n";
         }
 
@@ -99,6 +95,23 @@ import java.util.List;
                 }
             }
             return null;
+        }
+
+        public String listarNomeDosEventos() {
+            String listaNomeEventos = "\nNome dos eventos:" + "\n";
+
+            for (Evento evento : this.eventos){
+                listaNomeEventos += evento.getNome() + "\n"; 
+            }
+            return listaNomeEventos;
+        } 
+
+        public boolean jaExiste(String nome){
+            for (Evento evento : this.eventos) {
+                if (evento.getNome().equals(nome)) {
+                    return true;
+                } 
+            } return false;
         }
 
         @Override

@@ -1,1 +1,2 @@
-Show|tet|edd|39940|20000|500.0||pop
+Exposição|expo|e|45|45|11.0|11|6
+Jogo|a|r|45|50|11.0|fut|fla|fli

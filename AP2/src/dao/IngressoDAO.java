@@ -22,9 +22,9 @@ import entidades.ingressos.TipoIngresso;
             return this.ingresso.toString();
         }
 
-        public String criarIngresso(Evento evento, TipoIngresso tipoIngresso, Double descontoTorcedor) {
+        public String criarIngresso(Evento evento, TipoIngresso tipoIngresso, double descontoTorcedor) {
             this.ingresso = new IngJogo(evento, tipoIngresso, descontoTorcedor);
-            return "Evento adicionado com sucesso!";
+            return this.ingresso.toString();
         }
 
         public String toString() {
