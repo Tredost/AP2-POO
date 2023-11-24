@@ -1,2 +1,2 @@
-Exposição|expo|e|45|45|11.0|11|6
-Jogo|a|r|45|50|11.0|fut|fla|fli
+Exposição|agro|fazenda|40|10|25.0|12|5
+Jogo|carioca|maracana|50|40|50.0|futebol|fla|flu

@@ -60,7 +60,7 @@ public static LocalDate getNovaData() {
 public static Integer getOpcao(int Max){
     int opcao = leitor.nextInt();
     while (true) {
-        if (opcao < 0 || opcao > Max) {
+        if (opcao <= 0 || opcao > Max) {
             System.out.println("\nValor inválido! Tente novamente.");
             opcao = leitor.nextInt();
         } else {
