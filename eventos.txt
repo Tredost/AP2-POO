@@ -1,2 +1,1 @@
-Exposição|agro|fazenda|40|10|25.0|12|5
-Jogo|carioca|maracana|50|40|50.0|futebol|fla|flu
+Jogo|JOGO|Est�dio|500|500|1000.0|Futebol|Flamengo|Fluminense

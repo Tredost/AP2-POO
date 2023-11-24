@@ -2,7 +2,6 @@ package entidades;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import gestor.Gestor;
 import entidades.ingressos.TipoIngresso;
 import entidades.ingressos.IngShow.EspacoEnum;
 
@@ -14,7 +13,7 @@ public static String getNome(){
     System.out.println("\nQual o nome do evento? ");
     leitor.nextLine();
     return leitor.nextLine();
-} // adicionar excessão nome vazio
+}
 
 public static int getIngressosInteira() {
     System.out.println("\nQuantos ingressos INTEIRA existem? ");

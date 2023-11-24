@@ -6,7 +6,6 @@ import dao.EventoDAO;
 import dao.IngressoDAO;
 import entidades.LeitoraDeDados;
 import entidades.eventos.Evento;
-import entidades.ingressos.Ingresso;
 import entidades.ingressos.TipoIngresso;
 import entidades.ingressos.IngShow.EspacoEnum;
 
@@ -15,13 +14,8 @@ public class Gestor {
 
         EventoDAO eventos = new EventoDAO();
         Scanner leitor = new Scanner(System.in);
-        Evento evento = null;
-        Ingresso ingresso = null;
         boolean executando = true;
-        String nome, local, nomeArtista, generoMusical, esporte, equipe1, equipe2;
-        LocalDate data;
-        int opcao, ingressosInteira, ingressosMeia, idadeMinima, duracaoDias;
-        Double precoCheio;
+        int opcao;
 
 
         while (executando) {
