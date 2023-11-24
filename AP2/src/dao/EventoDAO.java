@@ -38,7 +38,7 @@ import java.util.List;
                 return "\nEvento já existente!";
         }
 
-        
+
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String esporte, String equipe1, String equipe2) {
             if(!jaExiste(nome)){
@@ -47,8 +47,8 @@ import java.util.List;
         }
             return "\nEvento já existente!";
         }
-                     
-        
+
+
 
         public String adicionarEvento(String nome, LocalDate data, String local, int ingressosInteira, int ingressosMeia, double precoCheio, String nomeArtista, String generoMusical) {
            if(!jaExiste(nome)){
@@ -72,7 +72,7 @@ import java.util.List;
             return this.eventos.isEmpty();
         }
 
-        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {   
+        public String atualizarEvento(String nome,String novoLocal,LocalDate novaData) {
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     evento.setLocal(novoLocal);
@@ -98,19 +98,19 @@ import java.util.List;
         }
 
         public String listarNomeDosEventos() {
-            String listaNomeEventos = "\nNome dos eventos:" + "\n";
+            String listaNomeEventos = "\nEventos disponíveis:" + "\n  ";
 
             for (Evento evento : this.eventos){
-                listaNomeEventos += evento.getNome() + "\n"; 
+                listaNomeEventos += evento.getNome() + "\n  ";
             }
             return listaNomeEventos;
-        } 
+        }
 
         public boolean jaExiste(String nome){
             for (Evento evento : this.eventos) {
                 if (evento.getNome().equals(nome)) {
                     return true;
-                } 
+                }
             } return false;
         }
 
